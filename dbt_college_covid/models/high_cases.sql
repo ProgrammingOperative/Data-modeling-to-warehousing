@@ -5,7 +5,7 @@ with cases as (
         cases as cases_number,
         cases_2021
 
-    from dbt_college_covid.fact_covid_cases
+    from fact_covid_cases
 
 ),
 
@@ -15,7 +15,7 @@ college_details as (
         college as college_name,
         county
 
-    from dbt_college_covid.fact_covid_cases
+    from Dim_college_info
 ),
 
 final as (
@@ -30,4 +30,4 @@ final as (
     join college_details on cases.college_id=college_details.college_id
 )
 
-select * from final;
+select * from final
